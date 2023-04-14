@@ -5,38 +5,63 @@
 
 using namespace std;
 
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
-}
 
-
-
-void readCharFile(string &filePath) {
+void readCharFile(string filePath, vector<std::pair<string , string>> &vectorOfXY) {
     ifstream in(filePath);
 
     char c;
     std::pair<string,string> pair;
-    vector<std::pair<string , string>> vectorOfXY;
+    //vector<std::pair<string , string>> vectorOfXY;
 
     if(in.is_open()) {
-        while(in.good()) {
+        while (!in.eof()){
+
             in.get(c);
-            if(c != ' ') {
-                if (c == '\n'){
-                    vectorOfXY.push_back(pair);
+            string first_element, second_element;
+            bool skip = false;
+            while(c != '\n'){
+                while (c == ' '){
+                    
+                    in.get(c);
+                    
+                    if (c != ' '){
+                        skip = true;
+                    }
                 }
-                pair.first = c;         //somehow append all of X to the first
-                                        //part of the pair and the second int on
-                                        // that line to the second part of the pair
+
+                cout << c << endl;
+                
+                if (skip == false){
+                    first_element += c;
+                } else {
+                    second_element += c;
+                }
+
+                in.get(c);
+                
+
             }
+
+            cout << first_element << endl << second_element << endl;
+
+            pair.first = first_element;
+            pair.second = second_element;
+            
+            vectorOfXY.push_back(pair);
+
         }
+        
+
+        
     }
 
     if(!in.eof() && in.fail())
         cout << "error reading " << filePath << endl;
 
     in.close();
+
+
+
 }
 
 
@@ -57,6 +82,20 @@ int compare(vector<int>,vector<int>){
 
 
     //return the lowest number and its base
+}
+
+
+
+int main() {
+    std::cout << "Hello, World!" << std::endl;
+
+    
+    vector<std::pair<string , string>> vec;
+
+    readCharFile("test.txt", vec);
+
+
+    return 0;
 }
 
 
