@@ -22,11 +22,13 @@ void readCharFile(string &filePath) {
     if(in.is_open()) {
         while(in.good()) {
             in.get(c);
-            if(c != ' '){
+            if(c != ' ') {
+                if (c == '\n'){
+                    vectorOfXY.push_back(pair);
+                }
                 pair.first = c;         //somehow append all of X to the first
                                         //part of the pair and the second int on
                                         // that line to the second part of the pair
-                vectorOfXY.push_back(pair);
             }
         }
     }
