@@ -55,7 +55,7 @@ vector<int> convert(std::pair<string,string> pair){
 
 int compare(vector<int>,vector<int>){
 
-    
+
     //return the lowest number and its base
 }
 
