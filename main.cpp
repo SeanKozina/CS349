@@ -44,3 +44,19 @@ void intsCantBeEqual(std::pair<string,string> pair, fstream outputfile){
     outputfile << pair.first << "is not equal to " << pair.second
     << "in any base 2...36" << endl;
 }
+
+
+
+vector<int> convert(std::pair<string,string> pair){
+
+
+    //return a vector of size 36 with each bases of the current pair
+}
+
+int compare(vector<int>,vector<int>){
+
+    
+    //return the lowest number and its base
+}
+
+
