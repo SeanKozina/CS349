@@ -23,7 +23,9 @@ void readCharFile(string &filePath) {
         while(in.good()) {
             in.get(c);
             if(c != ' '){
-                pair.first = c;
+                pair.first = c;         //somehow append all of X to the first
+                                        //part of the pair and the second int on
+                                        // that line to the second part of the pair
                 vectorOfXY.push_back(pair);
             }
         }
@@ -36,7 +38,7 @@ void readCharFile(string &filePath) {
 }
 
 
-void intsCantBeEqual(std::pair<string,string> pair, ifstream outputfile){
+void intsCantBeEqual(std::pair<string,string> pair, fstream outputfile){
     outputfile << pair.first << "is not equal to " << pair.second
     << "in any base 2...36" << endl;
 }
